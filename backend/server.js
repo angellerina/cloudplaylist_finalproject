@@ -39,7 +39,9 @@ express()
   .patch("/user-playlists/:userId/delete-track", deleteTrack)
 
   .get("/", (req, res) => {
-    res.send("Hello from Express!");
+    res.send(
+      "Hello from Express! Cloudplaylist server successfully hosted on Heroku!"
+    );
   })
 
   .get("*", (req, res) => {
