@@ -233,6 +233,7 @@ const SaveContainer = styled.div`
   input {
     outline: none;
     margin: 5px 0;
+    padding: 5px;
   }
 `;
 
@@ -321,6 +322,7 @@ const Line = styled.div`
 `;
 
 const SaveBtn = styled.div`
+  text-align: center;
   background-color: #d8d5d5;
   border-radius: 15px;
   padding: 8px;
