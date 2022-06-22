@@ -4,7 +4,8 @@ export const TokenContext = createContext(null);
 
 export const TokenProvider = ({ children }) => {
   // Authorization params
-  const REDIRECT_URI = "https://cloudplaylist.herokuapp.com/";
+  const REDIRECT_URI =
+    "https://netlify-thinks-angellerina-is-great.netlify.app/";
   const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
   const RESPONSE_TYPE = "token";
 
