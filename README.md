@@ -14,7 +14,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## What does it do?
 
-An app that allows users to automatically generate playlists based on the songs in the users' likes list on Spotify!
+Normally, Spotify is able to filter your likes by genres or mood but only on the mobile app, not on your desktop, AND it doesn't let you add those filtered likes as a playlist automatically.
+
+THIS is an app that allows users to automatically generate filtered playlists by moood based on the users' likes list on Spotify!
 
 Authentication is done through Spotify User Authorization.
 

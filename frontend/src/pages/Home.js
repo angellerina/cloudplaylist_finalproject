@@ -27,10 +27,8 @@ const Home = () => {
     setIsPlaying,
     libraryStatus,
     setLibraryStatus,
-    currentMood,
   } = useContext(TracksContext);
 
-  console.log(currentMood);
   return (
     <HomeContainer>
       {isLoaded ? (
@@ -41,6 +39,7 @@ const Home = () => {
             logout={logout}
           />
           <div>
+            {/* I wanted to change BG on diff mood click */}
             {/* {currentMood !== "default" ? (
               <StyledVideo autoPlay muted loop id="myVideo">
                 <source src={`/media/${currentMood}.mp4`} type="video/mp4" />

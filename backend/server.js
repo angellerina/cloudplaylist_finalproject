@@ -8,6 +8,8 @@ const {
   deleteTrack,
 } = require("./handlers");
 
+const PORT = process.env.PORT || 5000;
+
 express()
   .use(function (req, res, next) {
     res.header(
@@ -40,6 +42,6 @@ express()
     });
   })
 
-  .listen(8000, () => {
+  .listen(PORT, () => {
     console.log("listening on port 8000");
   });
