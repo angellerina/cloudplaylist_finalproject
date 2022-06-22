@@ -18,9 +18,15 @@ const { v4: uuidv4 } = require("uuid");
 
 const Saved = () => {
   const { userData, logout, token } = useContext(TokenContext);
+
   const { libraryStatus, setLibraryStatus } = useContext(TracksContext);
+
   const [isLoaded, setIsLoaded] = useState(false);
+
   const [savedPlaylists, setSavedPlaylists] = useState(null);
+
+  const [playlistName, setPlaylistName] = useState("");
+
   const [hide, setHide] = useState(false);
 
   //Get Saved Playlist from MongoDB
@@ -91,12 +97,13 @@ const Saved = () => {
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
-        name: "New Playlist",
+        name: playlistName,
         public: true,
       }),
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         // Populate playlist with tracks
         fetch(`https://api.spotify.com/v1/playlists/${data.id}/tracks`, {
           method: "POST",
@@ -117,6 +124,11 @@ const Saved = () => {
       .catch((err) => console.log(err));
   };
 
+  // Get Set Playlist Name
+  const handleChange = (e) => {
+    setPlaylistName(e.target.value);
+  };
+
   return (
     <>
       <Navbar
@@ -130,17 +142,30 @@ const Saved = () => {
             <div id={playlist[0]}>
               <Title>
                 <PlaylistNav>
+                  {/* Mood Playlist Title */}
                   <h1>{playlist[0]}</h1>
-                  <h1>hELLOOOOOOOOOO</h1>
-                  <SaveBtn
-                    id={playlist[0]}
-                    onClick={() => {
-                      return handleSpotifyPlaylist(playlist[0]);
-                    }}
-                  >
-                    Save to Spotify
-                  </SaveBtn>
+
+                  <SaveContainer>
+                    {/* Save playlist input */}
+                    <input
+                      placeholder="Enter playlist name"
+                      onChange={handleChange}
+                      type="text"
+                    />
+
+                    {/* Save Playlist Button */}
+                    <SaveBtn
+                      id={playlist[0]}
+                      onClick={() => {
+                        return handleSpotifyPlaylist(playlist[0]);
+                      }}
+                    >
+                      Save to Spotify
+                    </SaveBtn>
+                  </SaveContainer>
                 </PlaylistNav>
+
+                {/* Delete Playlist Button */}
                 <DeleteIcon>
                   <DeleteRoundedIcon
                     onClick={() => {
@@ -199,6 +224,16 @@ const Wrapper = styled.div`
 const StyledImg = styled.img`
   border-radius: 10px;
   box-shadow: 2px 2px 8px #aaa;
+`;
+
+const SaveContainer = styled.div`
+  width: 200px;
+  margin-left: 10%;
+
+  input {
+    outline: none;
+    margin: 5px 0;
+  }
 `;
 
 const StyledOverlay = styled.div`
@@ -269,6 +304,7 @@ const Title = styled.div`
 const PlaylistNav = styled.div`
   width: 100vw;
   display: flex;
+  flex-direction: column;
 `;
 
 const LineContainer = styled.div`

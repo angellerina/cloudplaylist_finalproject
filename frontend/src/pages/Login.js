@@ -12,7 +12,7 @@ const Login = () => {
     <Wrapper>
       <h1>Welcome to Cloud Playlist!</h1>
       <a
-        href={`${AUTH_ENDPOINT}?client_id=${process.env.REACT_APP_CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=user-library-read,playlist-modify-public`}
+        href={`${AUTH_ENDPOINT}?client_id=${process.env.REACT_APP_CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=user-library-read,playlist-modify-public, user-read-private, user-read-email`}
       >
         Login to Spotify
       </a>

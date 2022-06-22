@@ -35,7 +35,10 @@ const Navbar = ({ logout, setLibraryStatus, libraryStatus }) => {
             Saved
           </button>
         </Link>
-        <button onClick={logout}>Logout</button>
+
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <button onClick={logout}>Logout</button>
+        </Link>
       </Nav>
     </NavContainer>
   );
