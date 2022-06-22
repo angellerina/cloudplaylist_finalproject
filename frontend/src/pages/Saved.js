@@ -131,13 +131,14 @@ const Saved = () => {
               <Title>
                 <PlaylistNav>
                   <h1>{playlist[0]}</h1>
+                  <h1>hELLOOOOOOOOOO</h1>
                   <SaveBtn
                     id={playlist[0]}
                     onClick={() => {
                       return handleSpotifyPlaylist(playlist[0]);
                     }}
                   >
-                    save to spotify
+                    Save to Spotify
                   </SaveBtn>
                 </PlaylistNav>
                 <DeleteIcon>

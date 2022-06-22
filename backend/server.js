@@ -10,6 +10,8 @@ const {
 
 const PORT = process.env.PORT || 5000;
 
+const URI = "https://cloudplaylists.netlify.app" || "http://localhost:3000";
+
 express()
   .use(function (req, res, next) {
     res.header(
@@ -20,10 +22,7 @@ express()
       "Access-Control-Allow-Headers",
       "Origin, X-Requested-With, Content-Type, Accept"
     );
-    res.header(
-      "Access-Control-Allow-Origin",
-      "https://cloudplaylists.netlify.app"
-    );
+    res.header("Access-Control-Allow-Origin", URI);
     next();
   })
   .use(morgan("tiny"))
