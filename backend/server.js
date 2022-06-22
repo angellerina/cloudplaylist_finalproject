@@ -38,6 +38,10 @@ express()
   .patch("/user-playlists/:userId/delete-playlist", deletePlaylist)
   .patch("/user-playlists/:userId/delete-track", deleteTrack)
 
+  .get("/", (req, res) => {
+    res.send("Hello from Express!");
+  })
+
   .get("*", (req, res) => {
     res.status(404).json({
       status: 404,
@@ -46,5 +50,5 @@ express()
   })
 
   .listen(PORT, () => {
-    console.log("listening on port 8000");
+    console.log(`listening on port ${PORT}`);
   });
