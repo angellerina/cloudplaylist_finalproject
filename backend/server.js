@@ -22,7 +22,7 @@ express()
     );
     res.header(
       "Access-Control-Allow-Origin",
-      "https://cloudplaylists.netlify.app/"
+      "https://cloudplaylists.netlify.app"
     );
     next();
   })
