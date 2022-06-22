@@ -25,7 +25,7 @@ const Saved = () => {
 
   //Get Saved Playlist from MongoDB
   useEffect(() => {
-    fetch(`http://localhost:8000/user-playlists/${userData}`, {
+    fetch(`https://cloudplaylist.herokuapp.com//user-playlists/${userData}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -42,7 +42,7 @@ const Saved = () => {
   const handleDeletePlaylist = (moodId) => {
     // Delete Playlist
     fetch(
-      `http://localhost:8000/user-playlists/${userData}/delete-playlist?mood=${moodId}`,
+      `https://cloudplaylist.herokuapp.com/${userData}/delete-playlist?mood=${moodId}`,
       {
         method: "PATCH",
         headers: {
@@ -59,7 +59,7 @@ const Saved = () => {
   const handleDeleteTrack = (moodId, trackId) => {
     // Delete Track
     fetch(
-      `http://localhost:8000/user-playlists/${userData}/delete-track?mood=${moodId}&id=${trackId}`,
+      `https://cloudplaylist.herokuapp.com/user-playlists/${userData}/delete-track?mood=${moodId}&id=${trackId}`,
       {
         method: "PATCH",
         headers: {

@@ -4,7 +4,7 @@ export const TokenContext = createContext(null);
 
 export const TokenProvider = ({ children }) => {
   // Authorization params
-  const REDIRECT_URI = "http://localhost:3000/";
+  const REDIRECT_URI = "https://cloudplaylist.herokuapp.com/";
   const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
   const RESPONSE_TYPE = "token";
 

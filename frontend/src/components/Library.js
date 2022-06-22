@@ -36,7 +36,7 @@ const Library = ({
 
   // POST REQ
   const handleSavePlaylist = () => {
-    fetch(`http://localhost:8000/save-playlist`, {
+    fetch(`https://cloudplaylist.herokuapp.com//save-playlist`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
