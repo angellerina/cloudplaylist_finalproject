@@ -31,7 +31,7 @@ const Saved = () => {
 
   //Get Saved Playlist from MongoDB
   useEffect(() => {
-    fetch(`http://localhost:5000/user-playlists/${userData}`, {
+    fetch(`https://cloudplaylist.herokuapp.com/user-playlists/${userData}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
