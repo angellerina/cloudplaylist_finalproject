@@ -12,6 +12,8 @@ import SkipNextRoundedIcon from "@mui/icons-material/SkipNextRounded";
 import SkipPreviousRoundedIcon from "@mui/icons-material/SkipPreviousRounded";
 import PauseRoundedIcon from "@mui/icons-material/PauseRounded";
 
+import Volume from "../components/Volume";
+
 const Player = ({
   audioRef,
   setIsPlaying,
@@ -24,6 +26,7 @@ const Player = ({
     useContext(TracksContext);
 
   useEffect(() => {
+    audioRef.current.volume = 0.05;
     setCurrentSong((prev) => ({ ...prev, active: true }));
   }, []);
 
@@ -95,6 +98,11 @@ const Player = ({
     transform: `translateX(${trackInfo.animationPercentage}%)`,
   };
 
+  // Volume
+  const handleVolume = (e) => {
+    audioRef.current.volume = e.target.value / 100;
+  };
+
   return (
     <PlayerContainer>
       {/* Slider */}
@@ -115,9 +123,7 @@ const Player = ({
 
         <p>{trackInfo.duration ? getTime(trackInfo.duration) : "0:00"}</p>
       </TimeControl>
-
       {/* Player Controls */}
-
       <PlayControl>
         <SkipPreviousRoundedIcon
           onClick={() => skipTrackHandler("skip-back")}
@@ -134,13 +140,16 @@ const Player = ({
           fontSize="large"
         />
       </PlayControl>
-
+      <VolumeContainer>
+        <Volume handleVolume={handleVolume} />
+      </VolumeContainer>
       <audio
         ref={audioRef}
         src={currentSong.trackURL}
         onTimeUpdate={timeUpdateHandler}
         onLoadedMetadata={timeUpdateHandler}
         onEnded={songEndHandler}
+        volume="true"
       ></audio>
     </PlayerContainer>
   );
@@ -152,6 +161,11 @@ const PlayerContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+`;
+
+const VolumeContainer = styled.div`
+  display: flex;
+  justify-content: center;
 `;
 
 const AnimateTrack = styled.div`

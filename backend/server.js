@@ -20,10 +20,7 @@ express()
       "Access-Control-Allow-Headers",
       "Origin, X-Requested-With, Content-Type, Accept"
     );
-    res.header(
-      "Access-Control-Allow-Origin",
-      "https://cloudplaylists.netlify.app"
-    );
+    res.header("Access-Control-Allow-Origin", "http://localhost:3000/");
     next();
   })
   .use(morgan("tiny"))

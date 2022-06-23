@@ -3,12 +3,12 @@ import VolumeDownIcon from "@mui/icons-material/VolumeDown";
 
 import styled from "styled-components";
 
-const Volume = ({ audioRef }) => {
+const Volume = ({ audioRef, handleVolume }) => {
   return (
     <Container>
       <VolumeDownIcon fontSize="large" />
       <BarProgress ref={audioRef}>
-        <BarProgressKnob></BarProgressKnob>
+        <VolumeInput defaultValue="0.05" type="range" onChange={handleVolume} />
       </BarProgress>
     </Container>
   );
@@ -18,10 +18,8 @@ export const Container = styled.div`
   text-align: right;
   user-select: none;
   width: 50%;
-  justify-self: end;
-  margin-right: 25px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   @media (max-width: 769px) {
     display: none;
@@ -38,13 +36,17 @@ export const BarProgress = styled.div`
   width: 100%;
   border: 1px solid rgb(245, 245, 245);
 `;
-export const BarProgressKnob = styled.span`
-  position: relative;
-  height: 15px;
-  width: 15px;
-  border: 1px solid rgb(220, 220, 220);
-  border-radius: 50%;
+
+export const VolumeInput = styled.input`
   background-color: rgb(240, 240, 240);
 `;
+// export const BarProgressKnob = styled.input`
+//   position: relative;
+//   height: 15px;
+//   width: 15px;
+//   border: 1px solid rgb(220, 220, 220);
+//   border-radius: 50%;
+//   background-color: rgb(240, 240, 240);
+// `;
 
 export default Volume;
