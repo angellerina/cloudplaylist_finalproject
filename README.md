@@ -43,3 +43,13 @@ Finally, the user may save the preferred playlist to Spotify App themselves, whe
 ![Home Page](./frontend/public/media/saved_page.png)
 
 **Shoutout to my instructors, and fellow Concordia University classmates!**
+
+## To improve
+
+- Add pop-up queues to let user know the playlist is saved, or the playlist is added to Spotify
+- Add Volume control
+- Optimize mood filters based on multiple audio features
+
+
+
+
